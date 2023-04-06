@@ -2,7 +2,7 @@
 
 namespace benji_wan_kenobi.Models
 {
-    public class Planets
+    public class Planet
     {
         [Key]
         public int Id { get; set; }

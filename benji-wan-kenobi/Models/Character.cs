@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace benji_wan_kenobi.Models
 {
-    public class Characters
+    public class Character
     {
         [Key]
         public int Id { get; set; }
