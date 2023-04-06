@@ -1,0 +1,32 @@
+﻿@model IEnumerable<benji_wan_kenobi.Models.Character>
+
+@{
+    ViewData["Title"] = "Characters";
+}
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="">Characters</h2>
+        </div>
+        <div class="col-6 text-end">
+            <a asp-controller="Character" asp-action="Create" class="btn btn-outline-warning">
+                <i class="bi bi-plus-circle"></i> &nbsp; Create New Character
+            </a>
+        </div>
+    </div>
+    <br /><br />
+
+    <div class="container flex-wrap" style="display:flex;">
+        @foreach (var item in Model)
+        {
+            <div class="card bg-light mb-3 ms-3" style="max-width: 20rem; min-width: 20rem;">
+                <div class="card-header" style="text-transform:capitalize;">@Html.DisplayFor(modelItem => item.Motive)</div>
+                <div class="card-body">
+                    <h4 class="card-title text-dark" style="text-transform:capitalize;">@Html.DisplayFor(modelItem => item.Name)</h4>
+                    <p class="card-text text-dark" style="text-transform:capitalize;">Appears in: @Html.DisplayFor(modelItem => item.AppearsIn)</p>
+                </div>
+            </div>
+        }
+    </div>
+</div>

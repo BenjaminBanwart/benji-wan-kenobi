@@ -11,7 +11,7 @@ namespace benji_wan_kenobi.Models
         [Required]
         public string Name { get; set; }
 
-        public string Motive { get; set; } = "neutral";
+        public string Motive { get; set; } = "Neutral";
 
         [DisplayName("Appears In")]
         public string? AppearsIn { get; set; }
