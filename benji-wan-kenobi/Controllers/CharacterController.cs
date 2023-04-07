@@ -18,5 +18,24 @@ namespace benji_wan_kenobi.Controllers
             IEnumerable<Character> objCharacterList = _db.Characters;
             return View(objCharacterList);
         }
+
+        //Get the page
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Create(Character objCharacter)
+        {
+            if (ModelState.IsValid)
+            {
+                _db.Characters.Add(objCharacter);
+                _db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(objCharacter);
+        }
     }
 }
