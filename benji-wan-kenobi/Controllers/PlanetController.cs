@@ -76,5 +76,24 @@ namespace benji_wan_kenobi.Controllers
 
             return View(objPlanet);
         }
+
+        //Delete Route
+        public IActionResult Delete(int? id)
+        {
+            if (id == null || id == 0)
+            {
+                return NotFound();
+            }
+            var planetFromDb = _db.Planets.Find(id);
+
+            if (planetFromDb == null)
+            {
+                return NotFound();
+            }
+
+            _db.Planets.Remove(planetFromDb);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }
