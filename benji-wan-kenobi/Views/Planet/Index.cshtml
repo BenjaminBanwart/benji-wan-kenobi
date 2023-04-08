@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Planet>
+
+@{
+    ViewData["Title"] = "Planets";
+}
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="">Planets</h2>
+        </div>
+        <div class="col-6 text-end">
+            <a asp-controller="Planet" asp-action="Create" class="btn btn-outline-warning">
+                <i class="bi bi-plus-circle"></i> &nbsp; Create New Planet
+            </a>
+        </div>
+    </div>
+    <br /><br />
+
+    <div class="container flex-wrap" style="display:flex;">
+        @foreach (var item in Model)
+        {
+            <div class="card bg-light mb-3 ms-3" style="max-width: 20rem; min-width: 20rem;">
+                <div class="card-header" style="text-transform:capitalize;">@Html.DisplayFor(modelItem => item.Biome)</div>
+                <div class="card-body">
+                    <h4 class="card-title text-dark" style="text-transform:capitalize;">@Html.DisplayFor(modelItem => item.Name)</h4>
+                    <img src="@item.Image" class="d-block user-select-none" width="100%" height="200" aria-label="Placeholder: Planet Image" focusable="false" role="img" preserveAspectRatio="xMidYMid slice" viewBox="0 0 318 180" style="font-size:1.125rem;text-anchor:middle; border-radius:0.75rem;">
+                    <p class="card-text text-dark" style="text-transform:capitalize;">Capital: @Html.DisplayFor(modelItem => item.Capital)</p>
+                    <div class="w-75 btn-group" role="group">
+                        <a asp-controller="Planet" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-dark mx-2"><i class="bi bi-pencil-square"></i> Edit</a>
+                    </div>
+                    <div class="w-20 btn-group" role="group">
+                        <a asp-controller="Planet" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger mx-1"><i class="bi bi-trash"></i></a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}

@@ -1,0 +1,34 @@
+﻿@model Planet
+
+<form method="post">
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-warning">Edit Planet</h2>
+            <hr />
+        </div>
+        <div class="mb-3">
+            <label asp-for="Name"></label>
+            <input asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Capital"></label>
+            <input asp-for="Capital" class="form-control" />
+            <span asp-validation-for="Capital" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Biome"></label>
+            <input asp-for="Biome" class="form-control" />
+            <span asp-validation-for="Biome" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Image"></label>
+            <input asp-for="Image" class="form-control" />
+            <span asp-validation-for="Image" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-warning" style="width:150px">Create</button>
+        <a asp-controller="Planet" asp-action="Index" class="btn btn-light" style="width:150px">
+            Back to List
+        </a>
+    </div>
+</form>
