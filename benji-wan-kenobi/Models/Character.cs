@@ -13,6 +13,8 @@ namespace benji_wan_kenobi.Models
 
         public string Motive { get; set; } = "Neutral";
 
+        public string? Image { get; set; }
+
         [DisplayName("Appears In")]
         public string? AppearsIn { get; set; }
     }
