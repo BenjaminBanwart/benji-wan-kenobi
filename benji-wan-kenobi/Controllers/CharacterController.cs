@@ -19,12 +19,13 @@ namespace benji_wan_kenobi.Controllers
             return View(objCharacterList);
         }
 
-        //Get the page
+        //Get the Create page
         public IActionResult Create()
         {
             return View();
         }
 
+        //Post Route
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Create(Character objCharacter)
@@ -35,6 +36,43 @@ namespace benji_wan_kenobi.Controllers
                 _db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            return View(objCharacter);
+        }
+
+        //Get Edit Character View
+        public IActionResult Edit(int? id)
+        {
+            if (id == null || id == 0)
+            {
+                return NotFound();
+            }
+            var characterFromDb = _db.Characters.Find(id);
+
+            if (characterFromDb == null)
+            {
+                return NotFound();
+            }
+
+            return View(characterFromDb);
+        }
+
+        //PUT Route
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Edit(Character objCharacter)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+
+            if (ModelState.IsValid)
+            {
+                _db.Characters.Update(objCharacter);
+                _db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
             return View(objCharacter);
         }
     }
