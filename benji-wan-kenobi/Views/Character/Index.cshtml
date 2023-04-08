@@ -24,6 +24,7 @@
                 <div class="card-header" style="text-transform:capitalize;">@Html.DisplayFor(modelItem => item.Motive)</div>
                 <div class="card-body">
                     <h4 class="card-title text-dark" style="text-transform:capitalize;">@Html.DisplayFor(modelItem => item.Name)</h4>
+                    <img src="@item.Image" class="d-block user-select-none" width="100%" height="200" aria-label="Placeholder: Character Image" focusable="false" role="img" preserveAspectRatio="xMidYMid slice" viewBox="0 0 318 180" style="font-size:1.125rem;text-anchor:middle; border-radius:0.75rem;">
                     <p class="card-text text-dark" style="text-transform:capitalize;">Appears in: @Html.DisplayFor(modelItem => item.AppearsIn)</p>
                     <div class="w-75 btn-group" role="group">
                         <a asp-controller="Character" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-dark mx-2"><i class="bi bi-pencil-square"></i> Edit</a>

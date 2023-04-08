@@ -16,14 +16,15 @@
             <input asp-for="AppearsIn" class="form-control" />
             <span asp-validation-for="AppearsIn" class="text-danger"></span>
         </div>
+        <div class="mb-3">
+            <label asp-for="Image"></label>
+            <input asp-for="Image" class="form-control" />
+            <span asp-validation-for="Image" class="text-danger"></span>
+        </div>
         <p>If neither below apply, leave unchecked</p>
         <div class="form-check mb-3">
             @Html.LabelFor(Character => Character.Motive, "Good", htmlAttributes: new { @class = "form-check-label" })
             @Html.RadioButtonFor(Character => Character.Motive, "Good", htmlAttributes: new { @class = "form-check-input"})
-            @*<input class="form-check-input" type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
-            <label class="form-check-label" for="optionsRadios1">
-            Option one is this and that—be sure to include why it's great
-            </label>*@
         </div>
         <div class="form-check mb-3">
             @Html.LabelFor(Character => Character.Motive, "Evil", htmlAttributes: new { @class = "form-check-label" })
