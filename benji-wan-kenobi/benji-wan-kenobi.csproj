@@ -5,6 +5,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <RootNamespace>benji_wan_kenobi</RootNamespace>
+    <UserSecretsId>28ae86e0-d346-4d5f-8c01-562c50591b4b</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
